@@ -1,0 +1,18 @@
+@startuml ejercicioi
+state choice1 <<choice>>
+[*] --> Encargar_Producto
+Encargar_Producto --> Pedido_colocado : colocar pedido
+Pedido_colocado --> Validar_Pedido : validar pedido
+Validar_Pedido --> Cobrar_Pago : cobrar pago
+Cobrar_Pago --> Pedido_pagadoPorAdelantado : pago realizado
+Pedido_pagadoPorAdelantado --> Obtener_producto : obtener producto
+Obtener_producto --> choice1
+choice1 --> Enviar_urgente : si
+choice1 --> Enviar_ordinario : no
+Enviar_urgente --> Pedido_realizado : urgente enviado
+Enviar_ordinario --> Pedido_realizado : ordinario enviado
+Pedido_realizado --> Dar_cervezas_a_los_transportistas : dar cervezas
+Dar_cervezas_a_los_transportistas --> Añadir_cliente_lista_satisfechos : añadir cliente
+Añadir_cliente_lista_satisfechos --> Enviar_recibo : enviar recibo
+Enviar_recibo --> [*]
+@enduml

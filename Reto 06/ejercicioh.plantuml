@@ -1,0 +1,14 @@
+@startuml ejercicioh
+
+class Registro {
+    + introducirArticulo(id: ArticuloID, cant: int)
+}
+
+class Venta {
+    - crearLineaVenta(producto: EspecificacionProducto, cantidad: int)
+}
+
+Registro -> Venta: crearLineaVenta(producto, cantidad)
+
+Registro <- Venta: introducirArticulo(id: ArticuloID, cant: int)
+@enduml
